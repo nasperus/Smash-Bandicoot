@@ -9,6 +9,7 @@ namespace Player
       [SerializeField] private Animator animator;
       private static readonly int Running = Animator.StringToHash("Running");
       private static readonly int Spin = Animator.StringToHash("Spin");
+      private static readonly int Jump = Animator.StringToHash("Jump");
 
       private void Awake()
       {
@@ -29,6 +30,11 @@ namespace Player
       public void SpinAnimation()
       {
          animator.SetTrigger(Spin);
+      }
+
+      public void JumpAnimation()
+      {
+         animator.SetTrigger(Jump);
       }
    }
 }
