@@ -422,7 +422,7 @@ GameObject:
   - component: {fileID: 491188895}
   - component: {fileID: 491188894}
   - component: {fileID: 491188893}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -968,6 +968,22 @@ PrefabInstance:
     - target: {fileID: 557030185223236192, guid: d4af2e23ac15d394eb322dbe518d1f8d, type: 3}
       propertyPath: m_Center.y
       value: 1.5161586
+      objectReference: {fileID: 0}
+    - target: {fileID: 2440977969504878069, guid: d4af2e23ac15d394eb322dbe518d1f8d, type: 3}
+      propertyPath: spinCooldown
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2440977969504878069, guid: d4af2e23ac15d394eb322dbe518d1f8d, type: 3}
+      propertyPath: jumpUpGravity
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2440977969504878069, guid: d4af2e23ac15d394eb322dbe518d1f8d, type: 3}
+      propertyPath: jumpDownGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2440977969504878069, guid: d4af2e23ac15d394eb322dbe518d1f8d, type: 3}
+      propertyPath: jumpSpinGravity
+      value: -8
       objectReference: {fileID: 0}
     - target: {fileID: 6249221886979429001, guid: d4af2e23ac15d394eb322dbe518d1f8d, type: 3}
       propertyPath: m_LocalScale.x
