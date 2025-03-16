@@ -40,8 +40,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 630590e36931e5b47a6f256af67f1eb4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 630590e36931e5b47a6f256af67f1eb4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 630590e36931e5b47a6f256af67f1eb4, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 630590e36931e5b47a6f256af67f1eb4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.405
+      value: 5.29
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 630590e36931e5b47a6f256af67f1eb4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -49,7 +61,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 630590e36931e5b47a6f256af67f1eb4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -4.06
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 630590e36931e5b47a6f256af67f1eb4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -113,6 +125,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 630590e36931e5b47a6f256af67f1eb4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2440977969504878069}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 630590e36931e5b47a6f256af67f1eb4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3256796346191408141}
   m_SourcePrefab: {fileID: 100100000, guid: 630590e36931e5b47a6f256af67f1eb4, type: 3}
 --- !u!95 &25225987054405875 stripped
 Animator:
@@ -148,10 +163,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.10340729
-  m_Height: 1.5304711
+  m_Radius: 0.3938331
+  m_Height: 3.7986863
   m_Direction: 1
-  m_Center: {x: -0.030897588, y: 0.7647644, z: 0.022562742}
+  m_Center: {x: 0.0048790663, y: 1.8841854, z: -0.026533391}
 --- !u!54 &2798663338071854069
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -220,12 +235,42 @@ MonoBehaviour:
   moveSpeed: 10
   rotationSpeed: 30
   jumpForce: 7
-  groundDistance: 0.2
-  jumpUpGravity: 0
-  jumpDownGravity: -4
-  spinTimer: 0.7
+  jumpUpGravity: -5
   airMovementSpeed: 5
+  spinCooldown: 0.7
+  jumpSpinGravity: -8
+  groundDistance: 0.2
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
   groundCheck: {fileID: 7193762626865361991}
+--- !u!114 &3256796346191408141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6769581624170448947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 9b5c8f78df751954aac14b28733a638b, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
