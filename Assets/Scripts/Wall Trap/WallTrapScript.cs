@@ -30,22 +30,52 @@ namespace Wall_Trap
 
         private void MoveWithEffect()
         {
-            var moveSequence = DOTween.Sequence();
-
-            moveSequence.Append(transform.DOMoveX(_startPosition.x + (_toggleDirection * slightMoveDistance), slightDuration)
-                    .SetEase(Ease.InOutSine)) 
-                .Append(transform.DOMoveX(_startPosition.x, slightDuration)
-                    .SetEase(Ease.InOutSine)) 
-                .Append(transform.DOShakePosition(0.3f, shakeStrength, shakeEffect)) 
-                .Append(transform.DOMoveX(_startPosition.x + (_toggleDirection * fastMoveDistance), fastDuration)
-                    .SetEase(Ease.OutQuad)) 
-                .Append(transform.DOMoveX(_startPosition.x, returnDuration)
-                    .SetEase(Ease.InOutSine)) 
-                .AppendInterval(loopDelay) 
-                .SetLoops(-1);
+            var moveSequence = DOTween.Sequence()
+                .Append(MoveSlightLeftSlow())
+                .Append(MoveBackToOriginalPositionSlow())
+                .Append(ShakeEffect())
+                .Append(MoveFastLeft())
+                .Append(MoveSloBackToRight())
+                .AppendInterval(loopDelay)
+                                .SetLoops(-1);
 
             moveSequence.Play();
         }
+
+        private Tween MoveSlightLeftSlow()
+        {
+            return DOTween.Sequence()
+                .Append(transform.DOMoveX(_startPosition.x + (_toggleDirection * slightMoveDistance), slightDuration)
+                    .SetEase(Ease.InOutSine));
+        }
+
+        private Tween MoveBackToOriginalPositionSlow()
+        {
+            return DOTween.Sequence()
+                .Append(transform.DOMoveX(_startPosition.x, slightDuration)
+                    .SetEase(Ease.InOutSine));
+        }
+
+        private Tween ShakeEffect()
+        {
+            return DOTween.Sequence()
+                .Append(transform.DOShakePosition(0.3f, shakeStrength, shakeEffect));
+        }
+
+        private Tween MoveFastLeft()
+        {
+            return DOTween.Sequence()
+                .Append(transform.DOMoveX(_startPosition.x + (_toggleDirection * fastMoveDistance), fastDuration)
+                    .SetEase(Ease.OutQuad));
+        }
+
+        private Tween MoveSloBackToRight()
+        {
+            return DOTween.Sequence()
+                .Append(transform.DOMoveX(_startPosition.x, returnDuration)
+                    .SetEase(Ease.InOutSine));
+        }
+        
     }
     }
 
