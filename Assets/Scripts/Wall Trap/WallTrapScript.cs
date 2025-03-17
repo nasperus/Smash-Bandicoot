@@ -14,12 +14,14 @@ namespace Wall_Trap
         [SerializeField] private float returnDuration;
         [SerializeField] private float shakeStrength;
         [SerializeField] private int shakeEffect;
+        [SerializeField] private float shakeDuration;
         [SerializeField] private float loopDelay;
         
         private const int NegativeOne = -1;
         private const int PositiveOne = 1;
         private Vector3 _startPosition;
         private int _toggleDirection; 
+        
 
         private void Start()
         {
@@ -59,7 +61,7 @@ namespace Wall_Trap
         private Tween ShakeEffect()
         {
             return DOTween.Sequence()
-                .Append(transform.DOShakePosition(0.3f, shakeStrength, shakeEffect));
+                .Append(transform.DOShakePosition(shakeDuration, shakeStrength, shakeEffect));
         }
 
         private Tween MoveFastLeft()

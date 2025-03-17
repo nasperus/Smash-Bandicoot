@@ -1577,16 +1577,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 1608647596}
     m_Modifications:
     - target: {fileID: 948090784539323109, guid: 9f2fbec25cc1efe4996dc8f1d1b0f317, type: 3}
-      propertyPath: moveDirection
-      value: 1
+      propertyPath: shakeDuration
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4394435438533830996, guid: 9f2fbec25cc1efe4996dc8f1d1b0f317, type: 3}
       propertyPath: m_Name
       value: Wall Trap
-      objectReference: {fileID: 0}
-    - target: {fileID: 6922002271595512864, guid: 9f2fbec25cc1efe4996dc8f1d1b0f317, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2.0032
       objectReference: {fileID: 0}
     - target: {fileID: 6922002271595512864, guid: 9f2fbec25cc1efe4996dc8f1d1b0f317, type: 3}
       propertyPath: m_LocalPosition.x
