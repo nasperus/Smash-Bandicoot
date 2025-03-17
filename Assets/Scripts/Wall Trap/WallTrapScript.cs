@@ -17,8 +17,6 @@ namespace Wall_Trap
         [SerializeField] private float shakeDuration;
         [SerializeField] private float loopDelay;
         
-        private const int NegativeOne = -1;
-        private const int PositiveOne = 1;
         private Vector3 _startPosition;
         private int _toggleDirection; 
         
@@ -26,7 +24,7 @@ namespace Wall_Trap
         private void Start()
         {
             _startPosition = transform.position; 
-            _toggleDirection = (moveDirection == MoveDirection.Left) ? NegativeOne : PositiveOne; 
+            _toggleDirection = (moveDirection == MoveDirection.Left) ? -1 : 1; 
             MoveWithEffect();
         }
 
@@ -40,7 +38,6 @@ namespace Wall_Trap
                 .Append(MoveSloBackToRight())
                 .AppendInterval(loopDelay)
                                 .SetLoops(-1);
-
             moveSequence.Play();
         }
 
@@ -77,7 +74,6 @@ namespace Wall_Trap
                 .Append(transform.DOMoveX(_startPosition.x, returnDuration)
                     .SetEase(Ease.InOutSine));
         }
-        
     }
-    }
+}
 
