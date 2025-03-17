@@ -45,10 +45,8 @@ namespace Player
             JumpGravity();
         }
         
-        private void OnMove(InputValue value) 
-        {
-            _playerInput = value.Get<Vector2>();
-        }
+        private void OnMove(InputValue value) {_playerInput = value.Get<Vector2>();}
+        
         
         private void OnJump()
         {
@@ -68,7 +66,7 @@ namespace Player
         private void JumpGravity()
         {
             if (playerGroundCheck.IsGrounded) return;
-            if (!(_rb.linearVelocity.y > 0)) return;
+            if (_rb.linearVelocity.y <= 0) return;
             _rb.AddForce(new Vector3(0, jumpUpGravity, 0), ForceMode.Acceleration);
         }
         

@@ -30,7 +30,6 @@ namespace Player
         private void OnDrawGizmos()
         {
             if (groundCheck == null) return;
-            
             Gizmos.color = IsGrounded ? Color.green : Color.red;
             Gizmos.DrawRay(groundCheck.transform.position, Vector3.down * groundDistance);
         }
