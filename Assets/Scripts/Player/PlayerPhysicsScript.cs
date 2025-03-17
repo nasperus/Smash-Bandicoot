@@ -6,12 +6,16 @@ namespace Player
     {
     
         [SerializeField] private Rigidbody rb;
-        public Rigidbody Rb => rb;
-        public static PlayerPhysicsScript Instance { get; private set; }
+        public static Rigidbody Rb => Instance.rb;
+        private static PlayerPhysicsScript Instance { get; set; }
 
         private void Awake()
         {
             Instance = this;
+            if (rb == null)
+                rb = GetComponent<Rigidbody>();
         }
+
+        public Rigidbody GetRigidbody() => rb;
     }
 }

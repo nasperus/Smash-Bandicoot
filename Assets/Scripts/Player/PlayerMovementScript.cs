@@ -6,6 +6,11 @@ namespace Player
 {
     public class PlayerMovementScript : MonoBehaviour
     {
+        [Header("Dependencies")]
+        [SerializeField] private PlayerAnimationScript playerAnimation;
+        [SerializeField] private PlayerGroundCheckScript playerGroundCheck;
+        [SerializeField] private PlayerPhysicsScript playerPhysics;
+        
         [Header("Movement")]
         [SerializeField] private float moveSpeed;
         
@@ -16,125 +21,68 @@ namespace Player
         [SerializeField] private float jumpForce;
         [SerializeField] private float jumpUpGravity;
         [SerializeField] private float airMovementSpeed;
-       
-        [Header("Spin")]
-        [SerializeField] private float spinCooldown;
-        [SerializeField] private float jumpSpinGravity;
         
-        [Header("GroundChecks")]
-        [SerializeField] private float groundDistance;
-        [SerializeField] private LayerMask groundLayer;
-        [SerializeField] private GameObject groundCheck;
-        
-        private PlayerAnimationScript _playerAnimation;
         private Vector2 _playerInput;
-        private Rigidbody _rb;
-        
-        private float _spinCd;
-        private float _originalMovementSpeed;
+        private Rigidbody _rb; 
         
         private int _doubleJumpCounter;
         private int _currentJumps;
-        
         private const int MaxJumps = 2;
-        private const int X = 0;
-        private const int Z = 0;
-        private const int Y = 0;
-        private const int Zero = 0;
         
-        private bool _canSpin;
-        private bool _isJumping;
-        private bool _isGrounded;
+        public  bool CanSpin {get;  set;}
         public static bool IsRunning { get; private set; }
-      
         
         private void Start()
         {
-            _rb = PlayerPhysicsScript.Instance.Rb;
+            _rb = playerPhysics.GetRigidbody(); 
             _rb.freezeRotation = true;
-            _playerAnimation = GetComponent<PlayerAnimationScript>();
-            _originalMovementSpeed = moveSpeed;
+            
         }
         
         private void FixedUpdate()
         {
             PlayerMovement();
-            DetectGround();
             JumpGravity();
-            SpinCooldownTimer();
-            SpinToAirGravity();
         }
         
-        private void OnMove(InputValue value) {_playerInput = value.Get<Vector2>();}
-
-        private void OnFire()
+        private void OnMove(InputValue value) 
         {
-            _canSpin = true;
-            if (!(_spinCd <= Zero)) return;
-            _playerAnimation.SpinAnimation();
-            _spinCd = spinCooldown;
+            _playerInput = value.Get<Vector2>();
         }
         
         private void OnJump()
         {
-            if (_isGrounded)
+            if (playerGroundCheck.IsGrounded)
             {
                 _currentJumps = _doubleJumpCounter;
-                _canSpin = false;
+                CanSpin = false;
             }
-            if (_canSpin) return;
+            if (CanSpin) return;
             
             if (_currentJumps >= MaxJumps) return;
             _rb.linearVelocity = new Vector3(_rb.linearVelocity.x, jumpForce, _rb.linearVelocity.y);
-            _playerAnimation.JumpAnimation();
+            playerAnimation.JumpAnimation();
             _currentJumps++;
         }
-        private  void SpinCooldownTimer()
-        {
-            if (!(_spinCd >= Zero)) return;
-            _spinCd -= Time.deltaTime;   
-        }
-
-        private void SpinToAirGravity()
-        {
-            if (_canSpin && !_isGrounded)
-            {
-                _rb.AddForce(new Vector3(X, jumpSpinGravity, Z), ForceMode.Acceleration);
-            }
-        }
-        
+       
         private void JumpGravity()
         {
-            if (_isGrounded) return;
-            if (!(_rb.linearVelocity.y > Zero)) return;
-            _rb.AddForce(new Vector3(X, jumpUpGravity, Z), ForceMode.Acceleration);
-        }
-        
-        
-        private void DetectGround()
-        {
-            _isGrounded = Physics.Raycast(groundCheck.transform.position, Vector3.down, groundDistance, groundLayer);
+            if (playerGroundCheck.IsGrounded) return;
+            if (!(_rb.linearVelocity.y > 0)) return;
+            _rb.AddForce(new Vector3(0, jumpUpGravity, 0), ForceMode.Acceleration);
         }
         
         private void PlayerMovement()
         {
-            var movement = new Vector3(_playerInput.x, Y, _playerInput.y);
+            var movement = new Vector3(_playerInput.x, 0, _playerInput.y);
             IsRunning = movement != Vector3.zero;
             
-            moveSpeed = _isGrounded ? _originalMovementSpeed : _originalMovementSpeed - airMovementSpeed;
-            _rb.linearVelocity = new Vector3(movement.x * moveSpeed, _rb.linearVelocity.y, movement.z * moveSpeed);
+            var currentMoveSpeed =  playerGroundCheck.IsGrounded ? moveSpeed : moveSpeed - airMovementSpeed;
+            _rb.linearVelocity = new Vector3(movement.x * currentMoveSpeed, _rb.linearVelocity.y, movement.z * currentMoveSpeed);
             
             if (!IsRunning) return;
             var targetRotation = Quaternion.LookRotation(movement);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         }
-
-        private void OnDrawGizmos()
-        {
-            Gizmos.color = _isGrounded ? Color.green : Color.red;
-            Gizmos.DrawRay(groundCheck.transform.position, Vector3.down * groundDistance);
-        }
     }
 }
-
-   

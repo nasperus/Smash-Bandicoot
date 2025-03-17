@@ -1585,6 +1585,10 @@ PrefabInstance:
       value: Wall Trap
       objectReference: {fileID: 0}
     - target: {fileID: 6922002271595512864, guid: 9f2fbec25cc1efe4996dc8f1d1b0f317, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.0032
+      objectReference: {fileID: 0}
+    - target: {fileID: 6922002271595512864, guid: 9f2fbec25cc1efe4996dc8f1d1b0f317, type: 3}
       propertyPath: m_LocalPosition.x
       value: -24.44
       objectReference: {fileID: 0}

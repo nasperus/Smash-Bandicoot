@@ -7,14 +7,14 @@ namespace Wall_Trap
     {
         private enum MoveDirection { Left, Right }
         [SerializeField] private MoveDirection moveDirection; 
-        [SerializeField] private float slightMoveDistance; 
-        [SerializeField] private float fastMoveDistance;   
-        [SerializeField] private float slightDuration;  
-        [SerializeField] private float fastDuration;     
-        [SerializeField] private float returnDuration;     
-        [SerializeField] private float shakeStrength;    
-        [SerializeField] private int shakeEffect;        
-        [SerializeField] private float loopDelay;          
+        [SerializeField] private float slightMoveDistance;
+        [SerializeField] private float fastMoveDistance;
+        [SerializeField] private float slightDuration;
+        [SerializeField] private float fastDuration;
+        [SerializeField] private float returnDuration;
+        [SerializeField] private float shakeStrength;
+        [SerializeField] private int shakeEffect;
+        [SerializeField] private float loopDelay;
         
         private const int NegativeOne = -1;
         private const int PositiveOne = 1;
