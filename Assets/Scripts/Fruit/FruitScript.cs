@@ -1,16 +1,29 @@
+using Boxes;
 using UnityEngine;
+using DG.Tweening;
 
-public class FruitScript : MonoBehaviour
+
+namespace  Fruit
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public class FruitScript : MonoBehaviour
     {
+        [Header("Spin Fruit")]
+        [SerializeField] private float spinDuration;
+        [SerializeField] private int spinLoops;
         
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+        private void Start()
+        {
+            SpinFruit();
+          
+        }
+        
+        private void SpinFruit()
+        {
+            transform.DORotate(new Vector3(0,360,0),  spinDuration, RotateMode.FastBeyond360)
+                .SetLoops(spinLoops, LoopType.Restart)
+                .SetEase(Ease.Linear);
+        }
         
     }
 }
+

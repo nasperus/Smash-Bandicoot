@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6163799226734791999
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4909464985156453250}
+  m_Layer: 0
+  m_Name: Sphere Radius Object
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4909464985156453250
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6163799226734791999}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.526, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6249221886979429001}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7193762626865361991
 GameObject:
   m_ObjectHideFlags: 0
@@ -10,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5946303430559091204}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Ground Detect Object
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -109,6 +140,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 630590e36931e5b47a6f256af67f1eb4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5946303430559091204}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 630590e36931e5b47a6f256af67f1eb4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4909464985156453250}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 630590e36931e5b47a6f256af67f1eb4, type: 3}
       insertIndex: 1
@@ -293,8 +327,10 @@ MonoBehaviour:
   playerAnimation: {fileID: 2704022418080155766}
   playerGroundCheck: {fileID: 8268524910718354405}
   playerMovement: {fileID: 2440977969504878069}
+  playerPhysics: {fileID: 1118021874707307714}
   spinCooldown: 0.7
   jumpSpinGravity: -3
+  sphereRadiusObject: {fileID: 4909464985156453250}
 --- !u!114 &3256796346191408141
 MonoBehaviour:
   m_ObjectHideFlags: 0
