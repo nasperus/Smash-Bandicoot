@@ -1,36 +1,32 @@
 using Boxes;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Player
 {
-    public class PlayerSpinScript : MonoBehaviour, IPlayerDoesDamage
+    public class PlayerSpinScript : MonoBehaviour
     {
         [Header("Dependencies")]
         [SerializeField] private PlayerAnimationScript playerAnimation;
         [SerializeField ]private PlayerGroundCheckScript playerGroundCheck;
         [SerializeField] private PlayerMovementScript playerMovement;
         [SerializeField] private PlayerPhysicsScript playerPhysics;
+        [SerializeField] private PlayerDestroyBoxes playerDestroyBoxes;
+        
         
         [Header("Spin")]
         [SerializeField] private float spinCooldown;
         [SerializeField] private float jumpSpinGravity;
         
-        [Header("Sphere Radius Game Object")]
-        [SerializeField] private Transform sphereRadiusObject;
         
         private float _spinCd;
         private Rigidbody _rb;
+       
         
-        private SpinDamageDelegate _spinDamageDelegate;
-        private const float SphereRadius = 0.5f;
-        private Collider[] _hitColliders;
-        private bool _isTouchingBoxes;
-      
-     
         private void Start()
         {
             _rb = playerPhysics.GetRigidbody();
-            _spinDamageDelegate = DoSpinDamage;
+           
         }
 
         private void Update()
@@ -53,25 +49,6 @@ namespace Player
             }
         }
         
-        public void DoSpinDamage()
-        {
-             _hitColliders = Physics.OverlapSphere(sphereRadiusObject.position, SphereRadius);
-             _isTouchingBoxes = false;
-             
-            foreach (var hitCollider in _hitColliders)
-            {
-                if (!hitCollider.TryGetComponent(out BoxDestroyScript box)) continue;
-                _isTouchingBoxes = true;
-                Destroy(box.gameObject);
-            }
-        }
-        
-        private void OnDrawGizmos()
-        {
-            Gizmos.color = _isTouchingBoxes ? Color.green : Color.red;
-            Gizmos.DrawWireSphere(sphereRadiusObject.position, SphereRadius);
-        }
-        
         private void OnFire()
         { 
             playerMovement.CanSpin  = true;
@@ -80,7 +57,7 @@ namespace Player
             playerAnimation.SpinAnimation();
             _spinCd = spinCooldown;
             
-            _spinDamageDelegate?.Invoke();
+            playerDestroyBoxes.SpinDamageDelegate?.Invoke();
         }
         
     }

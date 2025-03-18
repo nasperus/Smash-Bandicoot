@@ -14,6 +14,7 @@ namespace Player
       {
          PlayerAnimation();
       }
+      
 
       private  void PlayerAnimation()
       {

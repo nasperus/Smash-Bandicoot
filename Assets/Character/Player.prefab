@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6163799226734791999
+--- !u!1 &3407156630190688047
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,24 +8,24 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4909464985156453250}
+  - component: {fileID: 6311418998696338912}
   m_Layer: 0
-  m_Name: Sphere Radius Object
+  m_Name: Sphere Radius
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4909464985156453250
+--- !u!4 &6311418998696338912
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6163799226734791999}
+  m_GameObject: {fileID: 3407156630190688047}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.526, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -142,11 +142,8 @@ PrefabInstance:
       addedObject: {fileID: 5946303430559091204}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 630590e36931e5b47a6f256af67f1eb4, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4909464985156453250}
+      addedObject: {fileID: 6311418998696338912}
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 630590e36931e5b47a6f256af67f1eb4, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 2488330424647693826}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 630590e36931e5b47a6f256af67f1eb4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 557030185223236192}
@@ -170,6 +167,9 @@ PrefabInstance:
       addedObject: {fileID: 8336471852510082534}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 630590e36931e5b47a6f256af67f1eb4, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 4700981403612390961}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 630590e36931e5b47a6f256af67f1eb4, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 3256796346191408141}
   m_SourcePrefab: {fileID: 100100000, guid: 630590e36931e5b47a6f256af67f1eb4, type: 3}
 --- !u!95 &25225987054405875 stripped
@@ -187,18 +187,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 630590e36931e5b47a6f256af67f1eb4, type: 3}
   m_PrefabInstance: {fileID: 5851032775733032290}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2488330424647693826
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6769581624170448947}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3bca94dbe4cb53418141a3a031521ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!136 &557030185223236192
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -218,7 +206,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.3938331
+  m_Radius: 0.8
   m_Height: 3.7986863
   m_Direction: 1
   m_Center: {x: 0.0048790663, y: 1.8841854, z: -0.026533391}
@@ -328,9 +316,22 @@ MonoBehaviour:
   playerGroundCheck: {fileID: 8268524910718354405}
   playerMovement: {fileID: 2440977969504878069}
   playerPhysics: {fileID: 1118021874707307714}
+  playerDestroyBoxes: {fileID: 4700981403612390961}
   spinCooldown: 0.7
   jumpSpinGravity: -3
-  sphereRadiusObject: {fileID: 4909464985156453250}
+--- !u!114 &4700981403612390961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6769581624170448947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3bca94dbe4cb53418141a3a031521ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sphereRadiusObject: {fileID: 6311418998696338912}
 --- !u!114 &3256796346191408141
 MonoBehaviour:
   m_ObjectHideFlags: 0
