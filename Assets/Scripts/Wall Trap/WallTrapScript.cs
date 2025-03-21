@@ -5,6 +5,7 @@ namespace Wall_Trap
 {
     public class WallTrapScript : MonoBehaviour
     {
+       
         private enum MoveDirection { Left, Right }
         [SerializeField] private MoveDirection moveDirection; 
         [SerializeField] private float slightMoveDistance;
@@ -18,8 +19,9 @@ namespace Wall_Trap
         [SerializeField] private float loopDelay;
         
         private Vector3 _startPosition;
+        private Vector3 _pushDirection;
         private int _toggleDirection; 
-        
+        public bool IsPlayerDamageable {get; private set;}
 
         private void Start()
         {
@@ -27,21 +29,23 @@ namespace Wall_Trap
             _toggleDirection = (moveDirection == MoveDirection.Left) ? -1 : 1; 
             MoveWithEffect();
         }
-
+        
+        
         private void MoveWithEffect()
         {
             var moveSequence = DOTween.Sequence()
-                .Append(MoveSlightLeftSlow())
+                .Append(MoveSlightly())
                 .Append(MoveBackToOriginalPositionSlow())
                 .Append(ShakeEffect())
-                .Append(MoveFastLeft())
-                .Append(MoveSloBackToRight())
+                .Append(MoveFast())
+                .Append(MoveBackToOriginalPosition())
                 .AppendInterval(loopDelay)
                                 .SetLoops(-1);
             moveSequence.Play();
         }
+        
 
-        private Tween MoveSlightLeftSlow()
+        private Tween MoveSlightly()
         {
             return DOTween.Sequence()
                 .Append(transform.DOMoveX(_startPosition.x + (_toggleDirection * slightMoveDistance), slightDuration)
@@ -61,19 +65,34 @@ namespace Wall_Trap
                 .Append(transform.DOShakePosition(shakeDuration, shakeStrength, shakeEffect));
         }
 
-        private Tween MoveFastLeft()
+        private Tween MoveFast()
         {
+
             return DOTween.Sequence()
                 .Append(transform.DOMoveX(_startPosition.x + (_toggleDirection * fastMoveDistance), fastDuration)
-                    .SetEase(Ease.OutQuad));
+                    .SetEase(Ease.OutQuad))
+
+                .OnUpdate(() =>
+                {
+                    IsPlayerDamageable = true;
+                });
+
         }
 
-        private Tween MoveSloBackToRight()
+        private Tween MoveBackToOriginalPosition()
         {
+            
             return DOTween.Sequence()
                 .Append(transform.DOMoveX(_startPosition.x, returnDuration)
-                    .SetEase(Ease.InOutSine));
+                    .SetEase(Ease.InOutSine))
+                .OnComplete(() => 
+                {
+                    IsPlayerDamageable = false; 
+                });
         }
+        
+        
+        
     }
 }
 

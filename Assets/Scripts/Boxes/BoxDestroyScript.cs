@@ -16,9 +16,13 @@ namespace Boxes
         [Header("Reference Fruits Prefab")]
         [SerializeField] private Transform scoreTarget;
         
-        private const float JumpHeight = 0.8f;
-        private const float JumpDuration = 0.2f;
-        private const float FallDuration = 0.2f;
+        // [Header("Player Target")]
+        // [SerializeField] private Transform playerTransform;
+        
+        private const float FruitJumpHeight = 0.8f;
+        private const float FruitJumpDuration = 0.2f;
+        private const float FruitFallDuration = 0.2f;
+       // private const float FruitMoveToPlayerDuration =0.5f;
         private Vector3 _spawnOffset;
         private Vector3 _spawnPosition;
         private GameObject _fruit;
@@ -34,19 +38,30 @@ namespace Boxes
                 _fruit = Instantiate(fruitPrefab, _spawnPosition, Quaternion.identity);
                 _fruitScript = _fruit.GetComponent<FruitScript>();
                 
+                /*var fruitRigidbody = _fruit.GetComponent<Rigidbody>();
+               
+                if (fruitRigidbody != null)
+                {
+                    fruitRigidbody.useGravity = false;
+                }*/
+                
                 if (_fruitScript != null)
                 {
                     _fruitScript.SetScoreTarget(scoreTarget);
                 }
+                
                 var fruitSequence = DOTween.Sequence();
                 fruitSequence
-                     .Append(_fruit.transform.DOMoveY(_spawnPosition.y + JumpHeight, JumpDuration));
+                    .Append(_fruit.transform.DOMoveY(_spawnPosition.y + FruitJumpHeight, FruitJumpDuration));
                 fruitSequence
-                     .Append(_fruit.transform.DOMoveY(_spawnPosition.y, FallDuration).SetEase(Ease.InQuad));
+                    .Append(_fruit.transform.DOMoveY(_spawnPosition.y, FruitFallDuration).SetEase(Ease.InQuad));
+                // fruitSequence
+                //     .Append(_fruit.transform.DOMove(playerTransform.position, FruitMoveToPlayerDuration).SetEase(Ease.InOutQuad));
+                //fruitSequence.SetDelay(i * 0.3f);
             }
         }
             
-        }
-    
     }
+    
+}
 

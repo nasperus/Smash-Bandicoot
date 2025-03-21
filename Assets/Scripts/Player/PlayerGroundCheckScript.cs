@@ -4,6 +4,7 @@ namespace Player
 {
     public class PlayerGroundCheckScript : MonoBehaviour
     {
+        [SerializeField] private PlayerJumpDamageScript playerJumpDamageScript;
         [Header("GroundChecks")]
         [SerializeField] private float groundDistance;
         [SerializeField] private LayerMask groundLayer;
@@ -23,7 +24,7 @@ namespace Player
 
         private void DetectGround()
         {
-            IsGrounded = Physics.Raycast(groundCheck.transform.position, Vector3.down, groundDistance, groundLayer);
+            IsGrounded = Physics.Raycast(groundCheck.transform.position, Vector3.down, groundDistance, groundLayer |playerJumpDamageScript.BoxMask);
         }
         
         private void OnDrawGizmos()

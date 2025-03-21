@@ -36,6 +36,8 @@ namespace Player
             Gizmos.color = _isTouchingBoxes ? Color.green : Color.red;
             Gizmos.DrawWireSphere(sphereRadiusObject.position, SphereRadius);
         }
+        
+        
    
     }
 }

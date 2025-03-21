@@ -1,6 +1,5 @@
-using Boxes;
 using UnityEngine;
-using UnityEngine.Serialization;
+using UnityEngine.InputSystem;
 
 namespace Player
 {
