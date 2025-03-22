@@ -354,10 +354,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerJumpDamageScript: {fileID: 348283077709906738}
+  playerMovementScript: {fileID: 2440977969504878069}
   groundDistance: 0.2
   groundLayer:
     serializedVersion: 2
-    m_Bits: 576
+    m_Bits: 64
   groundCheck: {fileID: 7193762626865361991}
 --- !u!114 &2440977969504878069
 MonoBehaviour:
@@ -377,7 +378,7 @@ MonoBehaviour:
   moveSpeed: 10
   rotationSpeed: 30
   jumpForce: 7
-  jumpUpGravity: -5
+  jumpGravity: -6
   airMovementSpeed: 5
 --- !u!114 &8336471852510082534
 MonoBehaviour:
@@ -397,7 +398,7 @@ MonoBehaviour:
   playerPhysics: {fileID: 1118021874707307714}
   playerDestroyBoxes: {fileID: 4700981403612390961}
   spinCooldown: 0.7
-  jumpSpinGravity: -3
+  jumpSpinGravity: 0
 --- !u!114 &4700981403612390961
 MonoBehaviour:
   m_ObjectHideFlags: 0

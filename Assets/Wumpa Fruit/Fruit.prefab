@@ -156,4 +156,4 @@ MonoBehaviour:
   spinDuration: 1.5
   spinLoops: -1
   scoreTarget: {fileID: 0}
-  moveDuration: 0.5
+  moveDuration: 0.8

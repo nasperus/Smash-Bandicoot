@@ -18,9 +18,10 @@ namespace Player
         
         [Header("Jump")]
         [SerializeField] private float jumpForce;
-        [SerializeField] private float jumpUpGravity;
+        [SerializeField] private float jumpGravity;
         [SerializeField] private float airMovementSpeed;
         
+
         private Vector2 _playerInput;
         private Rigidbody _rb; 
         
@@ -66,7 +67,7 @@ namespace Player
         {
             if (playerGroundCheck.IsGrounded) return;
             if (_rb.linearVelocity.y <= 0) return;
-            _rb.AddForce(new Vector3(0, jumpUpGravity, 0), ForceMode.Acceleration);
+            _rb.AddForce(new Vector3(0, jumpGravity, 0), ForceMode.Acceleration);
         }
         
         private void PlayerMovement()

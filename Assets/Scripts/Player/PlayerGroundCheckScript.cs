@@ -9,12 +9,15 @@ namespace Player
         [SerializeField] private float groundDistance;
         [SerializeField] private LayerMask groundLayer;
         [SerializeField] private GameObject groundCheck;
+        private Vector3 _defaultGravity;
         public bool IsGrounded {get; private set;}
 
         private void Start()
         {
             if(groundCheck == null)
                 groundCheck = gameObject;
+            
+            _defaultGravity = Physics.gravity;
         }
 
         private void Update()

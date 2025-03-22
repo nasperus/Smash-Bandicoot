@@ -26,15 +26,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d4a97cc3e454eaa448fa14deef659448, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.701
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d4a97cc3e454eaa448fa14deef659448, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.53
+      value: 7.207
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d4a97cc3e454eaa448fa14deef659448, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 17.02
+      value: -26.58
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d4a97cc3e454eaa448fa14deef659448, type: 3}
       propertyPath: m_LocalRotation.w
@@ -201,7 +201,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fruitPrefab: {fileID: 5350241929460490086, guid: 586e5836650f6674ebe6a47e79627176, type: 3}
   scoreTarget: {fileID: 0}
-  playerTransform: {fileID: 0}
 --- !u!54 &7484130492306526081
 Rigidbody:
   m_ObjectHideFlags: 0

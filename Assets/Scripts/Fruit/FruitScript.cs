@@ -12,8 +12,8 @@ namespace Fruit
         [SerializeField] private int spinLoops;
         
         [Header("Fruit go to UI")]
-        [SerializeField] private Transform scoreTarget; 
-        [SerializeField] private float moveDuration = 0.5f;
+        [SerializeField] private Transform scoreTarget;
+        [SerializeField] private float moveDuration;
         
         
         private void Start()
