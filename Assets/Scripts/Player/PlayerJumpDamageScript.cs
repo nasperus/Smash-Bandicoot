@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 
 namespace Player
 {
@@ -9,36 +8,24 @@ namespace Player
         [SerializeField] private Transform rayDown;
         [SerializeField] private float rayDistance;
         [SerializeField] private LayerMask boxMask;
-
-        private const float DestroyDelay = 0.1f;
-        public LayerMask BoxMask => boxMask;
-
         private void Update()
         {
             CheckBoxBelow();
             CheckBoxAbove();
         }
         
-
         private void CheckBoxBelow()
         {
-            if (!Physics.Raycast(rayDown.position, Vector3.down, out var hit, rayDistance, boxMask)) return;
-            StartCoroutine(DestroyAfterDelay(hit.collider.gameObject));
-            
+            Physics.Raycast(rayDown.position, Vector3.down,  rayDistance, boxMask);
+
         }
         
         private void CheckBoxAbove()
         {
-            if (!Physics.Raycast(rayUp.position, Vector3.up, out var hit, rayDistance, boxMask)) return;
-            StartCoroutine(DestroyAfterDelay(hit.collider.gameObject));
-            
-        }
+            Physics.Raycast(rayUp.position, Vector3.up, rayDistance, boxMask);
 
-        private static IEnumerator  DestroyAfterDelay(GameObject box)
-        {
-            yield return new WaitForSeconds(DestroyDelay);
-           Destroy(box);
         }
+        
 
         private void OnDrawGizmos()
         {

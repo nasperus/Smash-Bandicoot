@@ -21,6 +21,7 @@ namespace Player
         {
             Debug.Log("PlayerTakeHit");
             OnDamageEvent?.Invoke();
+            
         }
         
         private void OnDisable()

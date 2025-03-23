@@ -1,6 +1,5 @@
 using UnityEngine;
 using DG.Tweening;
-using Player;
 
 
 namespace Fruit
@@ -14,7 +13,6 @@ namespace Fruit
         [Header("Fruit go to UI")]
         [SerializeField] private Transform scoreTarget;
         [SerializeField] private float moveDuration;
-        
         
         private void Start()
         {
@@ -32,12 +30,14 @@ namespace Fruit
 
         private void OnTriggerEnter(Collider other)
         {
-            other.gameObject.TryGetComponent(out PlayerMovementScript player);
-            MoveToScore();
+            if (other.gameObject.CompareTag("Player"))
+            {
+                MoveToScore();
+            }
             
         }
         
-        private void MoveToScore()
+        public void MoveToScore()
         {
             if (scoreTarget == null) return;
             transform.DOMove(scoreTarget.position, moveDuration)

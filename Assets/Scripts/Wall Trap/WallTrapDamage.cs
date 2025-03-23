@@ -13,6 +13,7 @@ namespace Wall_Trap
             if (other.gameObject.CompareTag("Player") && wallTrap.IsPlayerDamageable)
             {
                 playerTakeDamage.PlayerTakeHit();
+                //Destroy(other.gameObject);
             }
         }
 

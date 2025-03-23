@@ -27,7 +27,9 @@ namespace Player
 
         private void DetectGround()
         {
-            IsGrounded = Physics.Raycast(groundCheck.transform.position, Vector3.down, groundDistance, groundLayer |playerJumpDamageScript.BoxMask);
+            IsGrounded =
+                Physics.Raycast(groundCheck.transform.position, Vector3.down, groundDistance,
+                    groundLayer); //|playerJumpDamageScript.BoxMask);
         }
         
         private void OnDrawGizmos()
