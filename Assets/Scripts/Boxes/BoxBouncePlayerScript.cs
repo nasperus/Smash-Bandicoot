@@ -13,6 +13,7 @@ namespace Boxes
         [SerializeField] private GameObject fruitPrefab;
         [SerializeField] private Transform scoreTarget;
         
+        
         private FruitScript _fruitScript;
         private const float DestroyDelay = 0.1f;
         private Rigidbody _rigidBody;  

@@ -17,7 +17,6 @@ namespace Player
         [SerializeField] private float spinCooldown;
         [SerializeField] private float jumpSpinGravity;
         
-        
         private float _spinCd;
         private Rigidbody _rb;
        
@@ -49,7 +48,8 @@ namespace Player
         }
         
         private void OnFire()
-        { 
+        {
+          
             playerMovement.CanSpin  = true;
             if (_spinCd > 0) return;
             
@@ -57,7 +57,9 @@ namespace Player
             _spinCd = spinCooldown;
             
             playerDestroyBoxes.SpinDamageDelegate?.Invoke();
+           
         }
+      
         
     }
 }

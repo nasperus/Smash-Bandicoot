@@ -30,7 +30,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d4a97cc3e454eaa448fa14deef659448, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.6
+      value: 7.246
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d4a97cc3e454eaa448fa14deef659448, type: 3}
       propertyPath: m_LocalPosition.z
@@ -153,10 +153,10 @@ PrefabInstance:
       addedObject: {fileID: 7997568469564249592}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d4a97cc3e454eaa448fa14deef659448, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7690604671479791832}
+      addedObject: {fileID: 7484130492306526081}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d4a97cc3e454eaa448fa14deef659448, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7484130492306526081}
+      addedObject: {fileID: 7690604671479791832}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d4a97cc3e454eaa448fa14deef659448, type: 3}
       insertIndex: -1
       addedObject: {fileID: 9064688164677497610}
@@ -187,20 +187,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 6.5300007, y: 6.4389606, z: 6.752071}
   m_Center: {x: 0, y: 2.984179, z: 0.2588305}
---- !u!114 &7690604671479791832
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3474429596811229163}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38ead56ef7aed4a468eb8668adf5d819, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fruitPrefab: {fileID: 5350241929460490086, guid: 586e5836650f6674ebe6a47e79627176, type: 3}
-  scoreTarget: {fileID: 0}
 --- !u!54 &7484130492306526081
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -223,11 +209,25 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 122
+  m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &7690604671479791832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3474429596811229163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38ead56ef7aed4a468eb8668adf5d819, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fruitPrefab: {fileID: 5350241929460490086, guid: 586e5836650f6674ebe6a47e79627176, type: 3}
+  scoreTarget: {fileID: 0}
 --- !u!114 &9064688164677497610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,6 +242,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyImmediately: 1
   jumpForce: 8
-  fruitScript: {fileID: 382968533645446732, guid: 586e5836650f6674ebe6a47e79627176, type: 3}
   fruitPrefab: {fileID: 5350241929460490086, guid: 586e5836650f6674ebe6a47e79627176, type: 3}
-  playerPosition: {fileID: 0}
+  scoreTarget: {fileID: 0}

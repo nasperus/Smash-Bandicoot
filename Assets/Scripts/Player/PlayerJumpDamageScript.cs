@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using System.Collections;
 namespace Player
 {
     public class PlayerJumpDamageScript : MonoBehaviour
@@ -16,13 +16,26 @@ namespace Player
         
         private void CheckBoxBelow()
         {
-            Physics.Raycast(rayDown.position, Vector3.down,  rayDistance, boxMask);
+            if (rayDown != null)
+            {
+                var hitSomething =  Physics.Raycast(rayDown.position, Vector3.down,out var hit,  rayDistance, boxMask);
+                if (hitSomething && hit.collider.TryGetComponent(out Boxes.TNTExplosiveBoxScript tnt))
+                {
+                    Debug.Log("happend");
+                    StartCoroutine(tnt.DelayExplosive());
+                }
+            }
+           
 
         }
         
         private void CheckBoxAbove()
         {
-            Physics.Raycast(rayUp.position, Vector3.up, rayDistance, boxMask);
+            if (rayUp != null)
+            {
+                Physics.Raycast(rayUp.position, Vector3.up, out var hit, rayDistance, boxMask);
+             
+            }
 
         }
         
