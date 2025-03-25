@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 namespace Player
 {
     public class PlayerJumpDamageScript : MonoBehaviour
@@ -8,6 +7,8 @@ namespace Player
         [SerializeField] private Transform rayDown;
         [SerializeField] private float rayDistance;
         [SerializeField] private LayerMask boxMask;
+        
+        
         private void Update()
         {
             CheckBoxBelow();
@@ -16,30 +17,28 @@ namespace Player
         
         private void CheckBoxBelow()
         {
-            if (rayDown != null)
+            if (rayDown == null) return;
+            var hitSomething =  Physics.Raycast(rayDown.position, Vector3.down,out var hit,  rayDistance, boxMask);
+            
+            if (hitSomething && hit.collider.TryGetComponent(out Boxes.TNTExplosiveBoxScript tnt))
             {
-                var hitSomething =  Physics.Raycast(rayDown.position, Vector3.down,out var hit,  rayDistance, boxMask);
-                if (hitSomething && hit.collider.TryGetComponent(out Boxes.TNTExplosiveBoxScript tnt))
-                {
-                    Debug.Log("happend");
-                    StartCoroutine(tnt.DelayExplosive());
-                }
+                Debug.Log("TNT Trigger");
+                StartCoroutine(tnt.DelayExplosive());
             }
-           
 
+            if (hitSomething && hit.collider.TryGetComponent(out Boxes.OnlyBounceBoxScript box))
+            {
+                box.CheckIfDestroyOnJump();
+            }
         }
         
         private void CheckBoxAbove()
         {
-            if (rayUp != null)
-            {
-                Physics.Raycast(rayUp.position, Vector3.up, out var hit, rayDistance, boxMask);
-             
-            }
-
+            if (rayUp == null) return;
+            var hitSomething = Physics.Raycast(rayUp.position, Vector3.up, out var hit, rayDistance, boxMask);
+            
         }
         
-
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.red;

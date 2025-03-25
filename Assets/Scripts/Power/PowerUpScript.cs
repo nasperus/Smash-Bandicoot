@@ -8,6 +8,7 @@ namespace Power
 
         [SerializeField] private Transform powerUpPosition;
         [SerializeField] private float powerMoveDuration;
+        
 
         private void OnTriggerEnter(Collider other)
         {
@@ -25,8 +26,7 @@ namespace Power
                             GetComponent<Collider>().enabled = false;
                     });
             }
-
-
         }
+        
     }
 }

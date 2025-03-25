@@ -10,14 +10,18 @@ namespace Player
         public SpinDamageDelegate SpinDamageDelegate;
         
 
-        private void Start()
+        private void OnEnable()
         {
-            SpinDamageDelegate = DoSpinDamage;
+            SpinDamageDelegate += DoSpinDamage;
+        }
+
+        private void OnDisable()
+        {
+            SpinDamageDelegate -= DoSpinDamage;
         }
 
         public void DoSpinDamage()
         {
-           
             _hitColliders = Physics.OverlapSphere(sphereRadiusObject.position, SphereRadius);
             
             foreach (var hitCollider in _hitColliders)
@@ -30,14 +34,12 @@ namespace Player
                 if (hitCollider.TryGetComponent(out Boxes.TNTExplosiveBoxScript tnt))
                 {
                     tnt.TntExplode();
-
                 }
 
                 if (hitCollider.TryGetComponent(out Boxes.BoxBouncePlayerScript bounce))
                 {
                     Destroy(bounce.gameObject);
                 }
-              
             }
         }
         
@@ -47,7 +49,5 @@ namespace Player
             Gizmos.DrawWireSphere(sphereRadiusObject.position, SphereRadius);
         }
         
-        
-   
     }
 }

@@ -1,5 +1,7 @@
 using UnityEngine;
 using Player;
+
+
 namespace Wall_Trap
 {
     public class WallTrapDamage : MonoBehaviour

@@ -1,5 +1,4 @@
 using System.Collections;
-
 using UnityEngine;
 
 namespace Boxes
@@ -24,14 +23,12 @@ namespace Boxes
               
                 foreach (var nearbyObjects  in _radiusExplosions)
                 {
-               
                     Destroy(nearbyObjects.gameObject);
+                        
                 }
                 _effect = Instantiate(explosiveEffect, transform.position, Quaternion.identity);
                 Destroy(_effect,1f);
-              
             }
-            
         }
 
         public IEnumerator DelayExplosive()

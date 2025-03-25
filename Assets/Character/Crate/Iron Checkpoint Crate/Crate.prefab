@@ -26,11 +26,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d4a97cc3e454eaa448fa14deef659448, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.19
+      value: -9.149
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d4a97cc3e454eaa448fa14deef659448, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.246
+      value: 7.244
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d4a97cc3e454eaa448fa14deef659448, type: 3}
       propertyPath: m_LocalPosition.z
@@ -159,7 +159,7 @@ PrefabInstance:
       addedObject: {fileID: 7690604671479791832}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d4a97cc3e454eaa448fa14deef659448, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 9064688164677497610}
+      addedObject: {fileID: 2351453453606434648}
   m_SourcePrefab: {fileID: 100100000, guid: d4a97cc3e454eaa448fa14deef659448, type: 3}
 --- !u!1 &3474429596811229163 stripped
 GameObject:
@@ -228,7 +228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fruitPrefab: {fileID: 5350241929460490086, guid: 586e5836650f6674ebe6a47e79627176, type: 3}
   scoreTarget: {fileID: 0}
---- !u!114 &9064688164677497610
+--- !u!114 &2351453453606434648
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -237,10 +237,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3474429596811229163}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4b8f0bd536ced349932338741faa140, type: 3}
+  m_Script: {fileID: 11500000, guid: 5cafc97970309b04b82d8ce23a89b594, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyImmediately: 1
   jumpForce: 8
-  fruitPrefab: {fileID: 5350241929460490086, guid: 586e5836650f6674ebe6a47e79627176, type: 3}
-  scoreTarget: {fileID: 0}

@@ -7,12 +7,12 @@ namespace Boxes
 {
     public class BoxBouncePlayerScript : MonoBehaviour
     {
-        [SerializeField] private bool destroyImmediately;
         [SerializeField] private float jumpForce;
         
         [SerializeField] private GameObject fruitPrefab;
         [SerializeField] private Transform scoreTarget;
         
+        private PlayerSpinScript _playerSpinScript;
         
         private FruitScript _fruitScript;
         private const float DestroyDelay = 0.1f;
@@ -25,30 +25,31 @@ namespace Boxes
         {
             if (!other.gameObject.TryGetComponent(out PlayerMovementScript player)) return;
             _rigidBody = player.GetComponent<Rigidbody>();
-            _rigidBody.linearVelocity = new Vector3(_rigidBody.linearVelocity.x, 0f, _rigidBody.linearVelocity.z);
-            _rigidBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-
-            CheckIfDestroyOnJump();
-            InstantiateFruitAndGetScoreReference();
-            CheckBoxHealth();
+            
+             BounceBoxForce();
+             InstantiateFruitAndGetScoreReference();
+             CheckBoxHealth();
+             if(scoreTarget == null)  return;
             _fruitScript.MoveToScore();
         }
 
+
+        private void BounceBoxForce()
+        {
+            _rigidBody.linearVelocity = new Vector3(_rigidBody.linearVelocity.x, 0f, _rigidBody.linearVelocity.z);
+            _rigidBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+
+        }
         
         private static IEnumerator DestroyAfterDelay(GameObject box)
         {
             yield return new WaitForSeconds(DestroyDelay);
             Destroy(box);
         }
-
-        private void CheckIfDestroyOnJump()
-        {
-            if (!destroyImmediately) return;
-            StartCoroutine(DestroyAfterDelay(gameObject));
-            
-        }
+        
         private void InstantiateFruitAndGetScoreReference()
         {
+            if (fruitPrefab == null) return;
             _fruit = Instantiate(fruitPrefab, transform.position, Quaternion.identity);
             _fruitScript = _fruit.GetComponent<FruitScript>();
             
@@ -66,8 +67,6 @@ namespace Boxes
                 StartCoroutine(DestroyAfterDelay(gameObject));
             }
         }
-        
-        }
-       
     }
+}
 

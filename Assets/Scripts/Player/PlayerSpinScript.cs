@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
+using System;
 
 namespace Player
 {
@@ -19,7 +19,7 @@ namespace Player
         
         private float _spinCd;
         private Rigidbody _rb;
-       
+        
         
         private void Start()
         {
@@ -49,7 +49,6 @@ namespace Player
         
         private void OnFire()
         {
-          
             playerMovement.CanSpin  = true;
             if (_spinCd > 0) return;
             
@@ -59,7 +58,5 @@ namespace Player
             playerDestroyBoxes.SpinDamageDelegate?.Invoke();
            
         }
-      
-        
     }
 }

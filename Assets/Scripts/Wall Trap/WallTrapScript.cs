@@ -30,6 +30,11 @@ namespace Wall_Trap
             MoveWithEffect();
         }
         
+        private void Update ()
+        {
+            transform.position = _startPosition;
+        }
+        
         
         private void MoveWithEffect()
         {
@@ -76,7 +81,6 @@ namespace Wall_Trap
                 {
                     IsPlayerDamageable = true;
                 });
-
         }
 
         private Tween MoveBackToOriginalPosition()

@@ -15,7 +15,6 @@ namespace Player
          PlayerAnimation();
       }
       
-
       private  void PlayerAnimation()
       {
          animator.SetBool(Running, PlayerMovementScript.IsRunning);
