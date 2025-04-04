@@ -7,6 +7,7 @@ namespace Player
         [SerializeField] private Transform rayDown;
         [SerializeField] private float rayDistance;
         [SerializeField] private LayerMask boxMask;
+        [SerializeField] private LayerMask enemyMask;
         
         
         private void Update()
@@ -18,7 +19,7 @@ namespace Player
         private void CheckBoxBelow()
         {
             if (rayDown == null) return;
-            var hitSomething =  Physics.Raycast(rayDown.position, Vector3.down,out var hit,  rayDistance, boxMask);
+            var hitSomething =  Physics.Raycast(rayDown.position, Vector3.down, out var hit, rayDistance, boxMask | enemyMask);
             
             if (hitSomething && hit.collider.TryGetComponent(out Boxes.TNTExplosiveBoxScript tnt))
             {
@@ -29,6 +30,11 @@ namespace Player
             if (hitSomething && hit.collider.TryGetComponent(out Boxes.OnlyBounceBoxScript box))
             {
                 box.CheckIfDestroyOnJump();
+            }
+
+            if (hitSomething && hit.collider.TryGetComponent(out Enemy.EnemyScript enemy))
+            {
+               enemy.CheckIfDestroyOnJump();
             }
         }
         

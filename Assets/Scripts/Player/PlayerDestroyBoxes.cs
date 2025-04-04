@@ -40,6 +40,11 @@ namespace Player
                 {
                     Destroy(bounce.gameObject);
                 }
+
+                if (hitCollider.TryGetComponent(out Enemy.EnemyScript enemy))
+                {
+                    Destroy(enemy.gameObject);
+                }
             }
         }
         

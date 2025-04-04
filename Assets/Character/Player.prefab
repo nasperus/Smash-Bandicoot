@@ -193,7 +193,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 630590e36931e5b47a6f256af67f1eb4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.03
+      value: -32.58
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 630590e36931e5b47a6f256af67f1eb4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -752,6 +752,9 @@ MonoBehaviour:
   boxMask:
     serializedVersion: 2
     m_Bits: 512
+  enemyMask:
+    serializedVersion: 2
+    m_Bits: 4096
 --- !u!114 &3256796346191408141
 MonoBehaviour:
   m_ObjectHideFlags: 0
