@@ -1,19 +1,17 @@
-using UnityEngine;
 using DG.Tweening;
+using UnityEngine;
 
 namespace Power
 {
     public class PowerUpScript : MonoBehaviour
     {
-
         [SerializeField] private Transform powerUpPosition;
         [SerializeField] private float powerMoveDuration;
-        
+
 
         private void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.CompareTag("Player"))
-            {
                 DOTween.Sequence()
                     .Append(transform.DOMove(powerUpPosition.position, powerMoveDuration))
                     .SetEase(Ease.InQuad)
@@ -21,12 +19,10 @@ namespace Power
                     {
                         transform.parent = powerUpPosition;
                         transform.localPosition = Vector3.zero;
-                        
+
                         if (GetComponent<Collider>() != null)
                             GetComponent<Collider>().enabled = false;
                     });
-            }
         }
-        
     }
 }

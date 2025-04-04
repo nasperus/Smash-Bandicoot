@@ -1,9 +1,9 @@
-
 namespace Player
 {
-    public interface IPlayerTakeDamage 
+    public interface IPlayerTakeDamage
     {
-         void PlayerTakeHit();
+        void PlayerTakeHit();
     }
+
     public delegate void DamageEventHandler();
 }

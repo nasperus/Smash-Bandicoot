@@ -4,6 +4,5 @@ namespace Fruit
 {
     public class FruitScoreScript : MonoBehaviour
     {
-     
     }
 }

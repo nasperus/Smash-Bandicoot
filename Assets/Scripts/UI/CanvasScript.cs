@@ -7,7 +7,7 @@ namespace UI
         [SerializeField] private Transform cameraTransform;
         [SerializeField] private Vector3 offset;
 
-       private void Update()
+        private void Update()
         {
             transform.position = cameraTransform.position + offset;
         }

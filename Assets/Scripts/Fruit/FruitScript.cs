@@ -1,25 +1,34 @@
-using UnityEngine;
 using DG.Tweening;
-
+using UnityEngine;
 
 namespace Fruit
 {
     public class FruitScript : MonoBehaviour
     {
-        [Header("Spin Fruit")] 
-        [SerializeField] private float spinDuration;
+        [Header("Spin Fruit")] [SerializeField]
+        private float spinDuration;
+
         [SerializeField] private int spinLoops;
-        
-        [Header("Fruit go to UI")]
-        [SerializeField] private Transform scoreTarget;
+
+        [Header("Fruit go to UI")] [SerializeField]
+        private Transform scoreTarget;
+
         [SerializeField] private float moveDuration;
-        
+
         private void Start()
         {
             SpinFruit();
-            
         }
-        public void SetScoreTarget(Transform target) {scoreTarget = target;}
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.CompareTag("Player")) MoveToScore();
+        }
+
+        public void SetScoreTarget(Transform target)
+        {
+            scoreTarget = target;
+        }
 
         private void SpinFruit()
         {
@@ -28,24 +37,12 @@ namespace Fruit
                 .SetEase(Ease.Linear);
         }
 
-        private void OnTriggerEnter(Collider other)
-        {
-            if (other.gameObject.CompareTag("Player"))
-            {
-                MoveToScore();
-            }
-            
-        }
-        
         public void MoveToScore()
         {
             if (scoreTarget == null) return;
             transform.DOMove(scoreTarget.position, moveDuration)
                 .SetEase(Ease.InOutQuad)
                 .OnComplete(() => Destroy(gameObject));
-            
         }
-        
     }
 }
-
