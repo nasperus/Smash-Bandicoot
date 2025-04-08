@@ -1,9 +1,10 @@
 using System.Collections;
+using Player;
 using UnityEngine;
 
 namespace Boxes
 {
-    public class TNTExplosiveBoxScript : MonoBehaviour
+    public class TNTExplosiveBoxScript : MonoBehaviour, ISpinDamageable
     {
         [SerializeField] private GameObject explosiveEffect;
         [SerializeField] private Transform explosionStart;
@@ -33,6 +34,10 @@ namespace Boxes
         public IEnumerator DelayExplosive()
         {
             yield return new WaitForSeconds(3);
+            TntExplode();
+        }
+        public void OnSpinDamage()
+        {
             TntExplode();
         }
     }

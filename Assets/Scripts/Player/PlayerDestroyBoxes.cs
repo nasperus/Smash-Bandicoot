@@ -1,5 +1,3 @@
-using Boxes;
-using Enemy;
 using UnityEngine;
 
 namespace Player
@@ -37,13 +35,7 @@ namespace Player
 
             foreach (var hitCollider in _hitColliders)
             {
-                if (hitCollider.TryGetComponent(out BoxDestroyScript box)) Destroy(box.gameObject);
-
-                if (hitCollider.TryGetComponent(out TNTExplosiveBoxScript tnt)) tnt.TntExplode();
-
-                if (hitCollider.TryGetComponent(out BoxBouncePlayerScript bounce)) Destroy(bounce.gameObject);
-
-                if (hitCollider.TryGetComponent(out EnemyScript enemy)) Destroy(enemy.gameObject);
+                if (hitCollider.TryGetComponent(out ISpinDamageable damageable)) damageable.OnSpinDamage();
             }
         }
     }

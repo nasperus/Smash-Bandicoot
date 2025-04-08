@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 namespace Player
 {
@@ -19,6 +20,7 @@ namespace Player
         private Rigidbody _rb;
 
         private float _spinCd;
+        private bool _isDamageActive;
 
 
         private void Start()
@@ -30,6 +32,8 @@ namespace Player
         {
             SpinCooldownTimer();
             SpinToAirGravity();
+            PlayerSpinDamageable();
+
         }
 
         private void SpinCooldownTimer()
@@ -51,8 +55,21 @@ namespace Player
 
             playerAnimation.SpinAnimation();
             _spinCd = spinCooldown;
+            StartCoroutine(ActivateSpinDamageForTimePeriod(spinCooldown));
 
-            playerDestroyBoxes.SpinDamageDelegate?.Invoke();
+        }
+
+        private void PlayerSpinDamageable()
+        {
+            if (!_isDamageActive) return;
+                playerDestroyBoxes.SpinDamageDelegate?.Invoke();
+        }
+
+        private IEnumerator ActivateSpinDamageForTimePeriod(float duration)
+        {
+            _isDamageActive = true;
+            yield return new WaitForSeconds(duration);
+            _isDamageActive = false;
         }
     }
 }

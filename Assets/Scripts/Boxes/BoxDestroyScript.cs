@@ -1,10 +1,11 @@
 using DG.Tweening;
 using Fruit;
+using Player;
 using UnityEngine;
 
 namespace Boxes
 {
-    public class BoxDestroyScript : MonoBehaviour
+    public class BoxDestroyScript : MonoBehaviour, ISpinDamageable
     {
         // [Header("Player Target")]
         // [SerializeField] private Transform playerTransform;
@@ -57,6 +58,11 @@ namespace Boxes
                 //     .Append(_fruit.transform.DOMove(playerTransform.position, FruitMoveToPlayerDuration).SetEase(Ease.InOutQuad));
                 //fruitSequence.SetDelay(i * 0.3f);
             }
+        }
+
+        public void OnSpinDamage()
+        {
+            Destroy(gameObject);
         }
     }
 }

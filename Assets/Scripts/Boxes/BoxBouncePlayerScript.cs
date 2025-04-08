@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Boxes
 {
-    public class BoxBouncePlayerScript : MonoBehaviour
+    public class BoxBouncePlayerScript : MonoBehaviour, ISpinDamageable
     {
         private const float DestroyDelay = 0.1f;
         [SerializeField] private float jumpForce;
@@ -63,5 +63,11 @@ namespace Boxes
             if (_boxHealth <= 0) 
                 StartCoroutine(DestroyAfterDelay(gameObject));
         }
+        
+        public void OnSpinDamage()
+        {
+            Destroy(gameObject);
+        }
     }
+    
 }

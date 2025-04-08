@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Enemy
 {
-    public class EnemyScript : MonoBehaviour
+    public class EnemyScript : MonoBehaviour, ISpinDamageable
     {
         private static bool _isDying;
         [SerializeField] private Transform leftPoint;
@@ -45,6 +45,11 @@ namespace Enemy
             yield return new WaitForSeconds(0.1f);
             _isDying = false;
             Destroy(box);
+        }
+        
+        public void OnSpinDamage()
+        {
+            Destroy(gameObject);
         }
     }
 }
