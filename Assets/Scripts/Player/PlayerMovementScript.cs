@@ -28,6 +28,7 @@ namespace Player
 
         private Vector2 _playerInput;
         private Rigidbody _rb;
+       
 
         public bool CanSpin { get; set; }
         public static bool IsRunning { get; private set; }
@@ -69,8 +70,10 @@ namespace Player
         private void JumpGravity()
         {
             if (playerGroundCheck.IsGrounded) return;
+            
             if (_rb.linearVelocity.y <= 0) return;
             _rb.AddForce(new Vector3(0, jumpGravity, 0), ForceMode.Acceleration);
+       
         }
 
         private void PlayerMovement()

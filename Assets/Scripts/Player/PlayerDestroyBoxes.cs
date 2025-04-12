@@ -4,7 +4,7 @@ namespace Player
 {
     public class PlayerDestroyBoxes : MonoBehaviour, IPlayerDoesDamage
     {
-        private const float SphereRadius = 1f;
+        [SerializeField] private  float sphereRadius = 1f;
 
         [Header("Sphere Radius Game Object")] [SerializeField]
         private Transform sphereRadiusObject;
@@ -26,12 +26,12 @@ namespace Player
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.green;
-            Gizmos.DrawWireSphere(sphereRadiusObject.position, SphereRadius);
+            Gizmos.DrawWireSphere(sphereRadiusObject.position, sphereRadius);
         }
 
         public void DoSpinDamage()
         {
-            _hitColliders = Physics.OverlapSphere(sphereRadiusObject.position, SphereRadius);
+            _hitColliders = Physics.OverlapSphere(sphereRadiusObject.position, sphereRadius);
 
             foreach (var hitCollider in _hitColliders)
             {
