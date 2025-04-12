@@ -72,6 +72,7 @@ namespace Player
             if (playerGroundCheck.IsGrounded) return;
             
             if (_rb.linearVelocity.y <= 0) return;
+            playerAnimation.JumpAnimation();
             _rb.AddForce(new Vector3(0, jumpGravity, 0), ForceMode.Acceleration);
        
         }
