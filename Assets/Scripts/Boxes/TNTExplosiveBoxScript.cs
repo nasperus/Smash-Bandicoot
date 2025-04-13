@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Boxes
 {
-    public class TNTExplosiveBoxScript : MonoBehaviour, ISpinDamageable
+    public class TNTExplosiveBoxScript : MonoBehaviour, ISpinDamageable, IPlayerBounceDamage
     {
         [SerializeField] private GameObject explosiveEffect;
         [SerializeField] private Transform explosionStart;
@@ -41,6 +41,11 @@ namespace Boxes
             if (!_onCountDown) return;
             _countDown -= Time.deltaTime;
             textMeshPro.text =Mathf.CeilToInt(_countDown).ToString();
+        }
+
+        public void PlayerBounceDamage()
+        {
+            StartCoroutine(DelayExplosive());
         }
 
 

@@ -4,13 +4,12 @@ using UnityEngine;
 
 namespace Boxes
 {
-    public class OnlyBounceBoxScript : MonoBehaviour
+    public class OnlyBounceBoxScript : MonoBehaviour, IPlayerBounceDamage
     {
         private const float DestroyDelay = 0.1f;
 
         [SerializeField] private float jumpForce;
-
-        //[SerializeField] private bool destroyImmediately;
+        
         private Rigidbody _rigidBody;
 
         private void OnCollisionEnter(Collision other)
@@ -20,11 +19,9 @@ namespace Boxes
             _rigidBody.linearVelocity = new Vector3(_rigidBody.linearVelocity.x, 0f, _rigidBody.linearVelocity.z);
             _rigidBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
-
-
-        public void CheckIfDestroyOnJump()
+        
+        private void CheckIfDestroyOnJump()
         {
-            // if (!destroyImmediately) return;
             StartCoroutine(DestroyAfterDelay(gameObject));
         }
 
@@ -32,6 +29,11 @@ namespace Boxes
         {
             yield return new WaitForSeconds(DestroyDelay);
             Destroy(box);
+        }
+
+        public void PlayerBounceDamage()
+        {
+            CheckIfDestroyOnJump();
         }
     }
 }

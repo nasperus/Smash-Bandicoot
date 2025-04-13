@@ -1,5 +1,3 @@
-using Boxes;
-using Enemy;
 using UnityEngine;
 
 namespace Player
@@ -33,16 +31,8 @@ namespace Player
             
             var hitSomething = Physics.Raycast(rayDown.position, Vector3.down, out var hit, rayDistance,
                 boxMask | enemyMask);
-
-            if (hitSomething && hit.collider.TryGetComponent(out TNTExplosiveBoxScript tnt))
-                StartCoroutine(tnt.DelayExplosive());
             
-
-            if (hitSomething && hit.collider.TryGetComponent(out OnlyBounceBoxScript box)) 
-                box.CheckIfDestroyOnJump();
-
-            if (hitSomething && hit.collider.TryGetComponent(out EnemyScript enemy)) 
-                enemy.CheckIfDestroyOnJump();
+            if(hitSomething && hit.collider.TryGetComponent(out IPlayerBounceDamage playerBounceDamage)) playerBounceDamage.PlayerBounceDamage();
         }
 
         private void CheckBoxAbove()

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Enemy
 {
-    public class EnemyScript : MonoBehaviour, ISpinDamageable
+    public class EnemyScript : MonoBehaviour, ISpinDamageable, IPlayerBounceDamage
     {
         private static bool _isDying;
         [SerializeField] private Transform leftPoint;
@@ -50,6 +50,11 @@ namespace Enemy
         public void OnSpinDamage()
         {
             Destroy(gameObject);
+        }
+
+        public void PlayerBounceDamage()
+        {
+            CheckIfDestroyOnJump();
         }
     }
 }
