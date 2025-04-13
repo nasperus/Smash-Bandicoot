@@ -21,16 +21,32 @@ namespace Boxes
         private Rigidbody _rigidBody;
 
 
-        private void OnCollisionEnter(Collision other)
+        // private void OnCollisionEnter(Collision other)
+        // {
+        //     if (!other.gameObject.TryGetComponent(out PlayerMovementScript player)) return;
+        //     _rigidBody = player.GetComponent<Rigidbody>();
+        //     
+        //     BounceBoxForce();
+        //     InstantiateFruitAndGetScoreReference();
+        //     CheckBoxHealth();
+        //     
+        //     Debug.Log("Player Hit");
+        //     if (scoreTarget == null) return;
+        //     _fruitScript.MoveToScore();
+        // }
+
+        private void OnTriggerEnter(Collider other)
         {
             if (!other.gameObject.TryGetComponent(out PlayerMovementScript player)) return;
             _rigidBody = player.GetComponent<Rigidbody>();
-
             BounceBoxForce();
             InstantiateFruitAndGetScoreReference();
             CheckBoxHealth();
+            
             if (scoreTarget == null) return;
             _fruitScript.MoveToScore();
+            Debug.Log("Trigger hit: " + other.gameObject.name);
+           
         }
 
 
@@ -61,7 +77,7 @@ namespace Boxes
         {
             _boxHealth--;
             if (_boxHealth <= 0) 
-                StartCoroutine(DestroyAfterDelay(gameObject));
+                StartCoroutine(DestroyAfterDelay(transform.parent.gameObject));
         }
         
         public void OnSpinDamage()

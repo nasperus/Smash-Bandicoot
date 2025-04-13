@@ -12,7 +12,7 @@ namespace Boxes
         
         private Rigidbody _rigidBody;
 
-        private void OnCollisionEnter(Collision other)
+        private void OnTriggerEnter(Collider other)
         {
             if (!other.gameObject.TryGetComponent(out PlayerMovementScript player)) return;
             _rigidBody = player.GetComponent<Rigidbody>();
@@ -20,9 +20,11 @@ namespace Boxes
             _rigidBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
         
+       
+        
         private void CheckIfDestroyOnJump()
         {
-            StartCoroutine(DestroyAfterDelay(gameObject));
+            StartCoroutine(DestroyAfterDelay(transform.parent.gameObject));
         }
 
         private static IEnumerator DestroyAfterDelay(GameObject box)

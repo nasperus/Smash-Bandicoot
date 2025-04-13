@@ -143,7 +143,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1549310070599711455, guid: d77b4ee71e021774ca87038a8ba9431a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.461
+      value: 0.553
       objectReference: {fileID: 0}
     - target: {fileID: 1549310070599711455, guid: d77b4ee71e021774ca87038a8ba9431a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -205,7 +205,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d605eea0fcf748c4f8da00963242e0b2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.511
+      value: 0.988
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d605eea0fcf748c4f8da00963242e0b2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -213,7 +213,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d605eea0fcf748c4f8da00963242e0b2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -30.93
+      value: -56.08
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d605eea0fcf748c4f8da00963242e0b2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -614,7 +614,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1625301862399943765}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 740556ea32284b9419e9040dd1551c7e, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -626,8 +626,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.450495, y: 1.6175652, z: 0.46763992}
-  m_Center: {x: -0.019159436, y: 1.1281896, z: -0.06663513}
+  m_Size: {x: 0.21982771, y: 1.5538456, z: 0.18135071}
+  m_Center: {x: -0.0494307, y: 1.1600493, z: -0.1426773}
 --- !u!114 &1876959712310451634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -666,7 +666,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5900a7157d4776b4788d033b97f8903f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerJumpDamageScript: {fileID: 5901390973991241206}
   groundDistance: 0.2
   groundLayer:
     serializedVersion: 2
@@ -751,7 +750,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rayUp: {fileID: 3348394498687466388}
   rayDown: {fileID: 5284454114906863716}
-  rayDistance: 0.2
+  rayDistance: 0.3
   boxMask:
     serializedVersion: 2
     m_Bits: 512
