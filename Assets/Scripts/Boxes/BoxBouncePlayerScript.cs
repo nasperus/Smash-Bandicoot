@@ -19,36 +19,22 @@ namespace Boxes
         private FruitScript _fruitScript;
         private PlayerSpinScript _playerSpinScript;
         private Rigidbody _rigidBody;
-
-
-        // private void OnCollisionEnter(Collision other)
-        // {
-        //     if (!other.gameObject.TryGetComponent(out PlayerMovementScript player)) return;
-        //     _rigidBody = player.GetComponent<Rigidbody>();
-        //     
-        //     BounceBoxForce();
-        //     InstantiateFruitAndGetScoreReference();
-        //     CheckBoxHealth();
-        //     
-        //     Debug.Log("Player Hit");
-        //     if (scoreTarget == null) return;
-        //     _fruitScript.MoveToScore();
-        // }
+        private FruitScoreScript _fruitScoreScript;
+        
 
         private void OnTriggerEnter(Collider other)
         {
             if (!other.gameObject.TryGetComponent(out PlayerMovementScript player)) return;
             _rigidBody = player.GetComponent<Rigidbody>();
+            
             BounceBoxForce();
             InstantiateFruitAndGetScoreReference();
             CheckBoxHealth();
             
             if (scoreTarget == null) return;
             _fruitScript.MoveToScore();
-            Debug.Log("Trigger hit: " + other.gameObject.name);
-           
+      
         }
-
 
         private void BounceBoxForce()
         {
@@ -68,9 +54,14 @@ namespace Boxes
             
             _fruit = Instantiate(fruitPrefab, transform.position, Quaternion.identity);
             _fruitScript = _fruit.GetComponent<FruitScript>();
+            _fruitScoreScript = FindObjectOfType<FruitScoreScript>();
 
-            if (_fruitScript != null) 
+            if (_fruitScript != null)
+            {
                 _fruitScript.SetScoreTarget(scoreTarget);
+                _fruitScript.SetScore(_fruitScoreScript);
+            } 
+                
         }
 
         private void CheckBoxHealth()

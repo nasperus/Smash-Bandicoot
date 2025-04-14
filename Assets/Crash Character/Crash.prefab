@@ -81,7 +81,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4676666926966082722, guid: e2162923916f050419951d05356621f2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.439
+      value: 0.387
       objectReference: {fileID: 0}
     - target: {fileID: 4676666926966082722, guid: e2162923916f050419951d05356621f2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -209,7 +209,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d605eea0fcf748c4f8da00963242e0b2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.374
+      value: 0.886
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d605eea0fcf748c4f8da00963242e0b2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -750,7 +750,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rayUp: {fileID: 3348394498687466388}
   rayDown: {fileID: 5284454114906863716}
-  rayDistance: 0.3
+  rayDistance: 0.4
   boxMask:
     serializedVersion: 2
     m_Bits: 512

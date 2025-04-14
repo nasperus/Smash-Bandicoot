@@ -155,5 +155,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spinDuration: 1.5
   spinLoops: -1
-  scoreTarget: {fileID: 0}
+  scoreTarget: {fileID: 81626171774979536, guid: 7cfe86b003c4df248a279f888d052180, type: 3}
+  scoreScript: {fileID: 0}
   moveDuration: 0.8

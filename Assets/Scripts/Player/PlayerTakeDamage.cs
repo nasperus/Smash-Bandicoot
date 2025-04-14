@@ -4,6 +4,13 @@ namespace Player
 {
     public class PlayerTakeDamage : MonoBehaviour, IPlayerTakeDamage
     {
+        public event DamageEventHandler OnDamageEvent;
+
+        private void OnEnable()
+        {
+            OnDamageEvent += PlayerTakeHit;
+        }
+
         private void OnDisable()
         {
             if (OnDamageEvent == null) return;
@@ -16,17 +23,7 @@ namespace Player
             OnDamageEvent?.Invoke();
         }
 
-        public event DamageEventHandler OnDamageEvent;
-
-        public void Subscribe(DamageEventHandler handler)
-        {
-            OnDamageEvent -= handler;
-            OnDamageEvent += handler;
-        }
-
-        public void UnSubscribe(DamageEventHandler handler)
-        {
-            OnDamageEvent -= handler;
-        }
+      
+        
     }
 }

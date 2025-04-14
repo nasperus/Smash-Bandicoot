@@ -23,6 +23,7 @@ namespace Boxes
         private GameObject _fruit;
 
         private FruitScript _fruitScript;
+        private FruitScoreScript _fruitScoreScript;
 
         // private const float FruitMoveToPlayerDuration =0.5f;
         private Vector3 _spawnOffset;
@@ -33,6 +34,7 @@ namespace Boxes
         {
             for (var i = 0; i < 5; i++)
             {
+                _fruitScoreScript = FindObjectOfType<FruitScoreScript>();
                 _spawnOffset = new Vector3(Random.Range(-0.7f, 0.7f), 0.1f, Random.Range(-0.7f, 0.7f));
                 _spawnPosition = transform.position + _spawnOffset;
 
@@ -46,8 +48,12 @@ namespace Boxes
                     fruitRigidbody.useGravity = false;
                 }*/
 
-                if (_fruitScript != null) 
+                if (_fruitScript != null)
+                {
                     _fruitScript.SetScoreTarget(scoreTarget);
+                    _fruitScript.SetScore(_fruitScoreScript);
+                }
+                    
 
                 var fruitSequence = DOTween.Sequence();
                 fruitSequence

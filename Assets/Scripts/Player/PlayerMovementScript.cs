@@ -7,9 +7,8 @@ namespace Player
     {
         private const int MaxJumps = 2;
 
-        [Header("Dependencies")] [SerializeField]
-        private PlayerAnimationScript playerAnimation;
-
+        [Header("Dependencies")]
+        [SerializeField] private PlayerAnimationScript playerAnimation;
         [SerializeField] private PlayerGroundCheckScript playerGroundCheck;
         [SerializeField] private PlayerPhysicsScript playerPhysics;
 
@@ -19,20 +18,18 @@ namespace Player
 
         [Header("Jump")] [SerializeField] private float jumpForce;
 
+        [Header("Air Gravity/Movement")]
         [SerializeField] private float jumpGravity;
         [SerializeField] private float airMovementSpeed;
+        
         private int _currentJumps;
-
         private int _doubleJumpCounter;
-
-
         private Vector2 _playerInput;
         private Rigidbody _rb;
-       
-
         public bool CanSpin { get; set; }
         public static bool IsRunning { get; private set; }
 
+        
         private void Start()
         {
             _rb = playerPhysics.GetRigidbody();
@@ -45,12 +42,8 @@ namespace Player
             JumpGravity();
         }
 
-        private void OnMove(InputValue value)
-        {
-            _playerInput = value.Get<Vector2>();
-        }
-
-
+        private void OnMove(InputValue value) { _playerInput = value.Get<Vector2>();}
+        
         private void OnJump()
         {
             if (playerGroundCheck.IsGrounded)
@@ -58,7 +51,6 @@ namespace Player
                 _currentJumps = _doubleJumpCounter;
                 CanSpin = false;
             }
-
             if (CanSpin) return;
 
             if (_currentJumps >= MaxJumps) return;
@@ -72,7 +64,7 @@ namespace Player
             if (playerGroundCheck.IsGrounded) return;
             
             if (_rb.linearVelocity.y <= 0) return;
-            playerAnimation.JumpAnimation();
+            //playerAnimation.JumpAnimation();
             _rb.AddForce(new Vector3(0, jumpGravity, 0), ForceMode.Acceleration);
        
         }

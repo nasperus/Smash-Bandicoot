@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using Player;
 using TMPro;
@@ -59,7 +58,7 @@ namespace Boxes
             Destroy(_effect, 1f);
         }
 
-        public IEnumerator DelayExplosive()
+        private IEnumerator DelayExplosive()
         {
             _onCountDown = true;
             textMeshPro.gameObject.SetActive(true);

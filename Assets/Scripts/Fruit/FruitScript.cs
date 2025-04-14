@@ -13,16 +13,37 @@ namespace Fruit
         [Header("Fruit go to UI")] [SerializeField]
         private Transform scoreTarget;
 
+        private FruitScoreScript _scoreScript;
+        
         [SerializeField] private float moveDuration;
+        
+        
 
         private void Start()
         {
             SpinFruit();
+            
+            if (_scoreScript == null)
+            {
+                _scoreScript = FindObjectOfType<FruitScoreScript>();
+            }
         }
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.CompareTag("Player")) MoveToScore();
+            if (other.gameObject.CompareTag("Player")) 
+                MoveToScore();
+            
+            if (_scoreScript != null)
+            {
+                _scoreScript.IncreaseScore();
+            }
+            
+        }
+
+        public void SetScore(FruitScoreScript script)
+        {
+            _scoreScript = script;
         }
 
         public void SetScoreTarget(Transform target)

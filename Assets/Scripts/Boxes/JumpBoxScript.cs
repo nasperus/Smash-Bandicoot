@@ -15,6 +15,5 @@ namespace Boxes
             _rigidBody.linearVelocity = new Vector3(_rigidBody.linearVelocity.x, 0f, _rigidBody.linearVelocity.z);
             _rigidBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
-        
     }
 }

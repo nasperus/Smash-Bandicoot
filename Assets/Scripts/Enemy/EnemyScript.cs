@@ -7,10 +7,11 @@ namespace Enemy
 {
     public class EnemyScript : MonoBehaviour, ISpinDamageable, IPlayerBounceDamage
     {
-        private static bool _isDying;
         [SerializeField] private Transform leftPoint;
         [SerializeField] private Transform rightPoint;
-        [SerializeField] private float moveDuration = 2f;
+        [SerializeField] private float moveDuration;
+        
+        private static bool _isDying;
 
         private void Start()
         {

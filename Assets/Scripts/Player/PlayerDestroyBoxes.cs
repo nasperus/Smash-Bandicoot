@@ -4,10 +4,10 @@ namespace Player
 {
     public class PlayerDestroyBoxes : MonoBehaviour, IPlayerDoesDamage
     {
-        [SerializeField] private  float sphereRadius = 1f;
-
-        [Header("Sphere Radius Game Object")] [SerializeField]
-        private Transform sphereRadiusObject;
+        
+        [Header("Sphere Radius Game Object")] 
+        [SerializeField] private Transform sphereRadiusObject;
+        [SerializeField] private  float sphereRadius;
 
         private Collider[] _hitColliders;
         public SpinDamageDelegate SpinDamageDelegate;

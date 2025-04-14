@@ -6,10 +6,9 @@ namespace Boxes
 {
     public class OnlyBounceBoxScript : MonoBehaviour, IPlayerBounceDamage
     {
-        private const float DestroyDelay = 0.1f;
-
         [SerializeField] private float jumpForce;
         
+        private const float DestroyDelay = 0.1f;
         private Rigidbody _rigidBody;
 
         private void OnTriggerEnter(Collider other)
@@ -19,8 +18,6 @@ namespace Boxes
             _rigidBody.linearVelocity = new Vector3(_rigidBody.linearVelocity.x, 0f, _rigidBody.linearVelocity.z);
             _rigidBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
-        
-       
         
         private void CheckIfDestroyOnJump()
         {

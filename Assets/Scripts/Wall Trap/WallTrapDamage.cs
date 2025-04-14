@@ -12,7 +12,7 @@ namespace Wall_Trap
         private void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.CompareTag("Player") && wallTrap.IsPlayerDamageable) playerTakeDamage.PlayerTakeHit();
-            //Destroy(other.gameObject);
+            
         }
     }
 }
