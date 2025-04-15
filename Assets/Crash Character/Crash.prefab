@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4903888822935409044
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 960628866828944369}
+  m_Layer: 10
+  m_Name: FruitPick
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &960628866828944369
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4903888822935409044}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.714, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2145380017504354031}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &494603724549604596
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -209,11 +240,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d605eea0fcf748c4f8da00963242e0b2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.886
+      value: -0.401
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d605eea0fcf748c4f8da00963242e0b2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -56.08
+      value: -58.4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d605eea0fcf748c4f8da00963242e0b2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -485,6 +516,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: d605eea0fcf748c4f8da00963242e0b2, type: 3}
       insertIndex: 4
       addedObject: {fileID: 1916081236407030460}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: d605eea0fcf748c4f8da00963242e0b2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 960628866828944369}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d605eea0fcf748c4f8da00963242e0b2, type: 3}
       insertIndex: -1
@@ -688,9 +722,9 @@ MonoBehaviour:
   playerPhysics: {fileID: 1876959712310451634}
   moveSpeed: 10
   rotationSpeed: 30
-  jumpForce: 7
-  jumpGravity: -6
-  airMovementSpeed: 5
+  jumpForce: 10
+  jumpGravity: -0.6
+  airMovementSpeed: 4
 --- !u!114 &6723982020100176043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -722,8 +756,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3bca94dbe4cb53418141a3a031521ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sphereRadius: 0.5
   sphereRadiusObject: {fileID: 52649116739201043}
+  sphereRadius: 0.7
 --- !u!114 &2384200473900871515
 MonoBehaviour:
   m_ObjectHideFlags: 0

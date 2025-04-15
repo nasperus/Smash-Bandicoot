@@ -69,6 +69,39 @@ MonoBehaviour:
   jumpForce: 9
   fruitPrefab: {fileID: 5350241929460490086, guid: 586e5836650f6674ebe6a47e79627176, type: 3}
   scoreTarget: {fileID: 0}
+  brokenCratePrefab: {fileID: 461891483162443337, guid: d2bdc20ef057f954bba6f8f7f7bec9c9, type: 3}
+  brokenCratePosition: {fileID: 5275846732832113180}
+--- !u!1 &4425901231006737565
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5275846732832113180}
+  m_Layer: 9
+  m_Name: Broken Crate Posiition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5275846732832113180
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4425901231006737565}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.656, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2441173437711327705}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2768151586996373042
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -79,19 +112,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: d791c8640c5814f4d8f894ff70af3eef, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.6
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d791c8640c5814f4d8f894ff70af3eef, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.6
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d791c8640c5814f4d8f894ff70af3eef, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.6
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d791c8640c5814f4d8f894ff70af3eef, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.025
+      value: 1.41
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d791c8640c5814f4d8f894ff70af3eef, type: 3}
       propertyPath: m_LocalPosition.y
@@ -99,7 +132,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d791c8640c5814f4d8f894ff70af3eef, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -21.554916
+      value: -23.52
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d791c8640c5814f4d8f894ff70af3eef, type: 3}
       propertyPath: m_LocalRotation.w
@@ -147,6 +180,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: d791c8640c5814f4d8f894ff70af3eef, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6950532413196733897}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: d791c8640c5814f4d8f894ff70af3eef, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5275846732832113180}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d791c8640c5814f4d8f894ff70af3eef, type: 3}
       insertIndex: -1
@@ -198,6 +234,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b8f0bd536ced349932338741faa140, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 9
+  jumpForce: 15
   fruitPrefab: {fileID: 5350241929460490086, guid: 586e5836650f6674ebe6a47e79627176, type: 3}
   scoreTarget: {fileID: 0}
+  brokenCratePrefab: {fileID: 461891483162443337, guid: d2bdc20ef057f954bba6f8f7f7bec9c9, type: 3}
+  brokenCratePosition: {fileID: 5275846732832113180}

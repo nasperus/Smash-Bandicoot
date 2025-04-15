@@ -12,14 +12,19 @@ namespace Fruit
 
         private void Start()
         {
+            if (scoreText == null)
+            {
+                scoreText = FindObjectOfType<TextMeshProUGUI>();
+            }
             _increaseScore = 0;
 
         }
 
         public void IncreaseScore()
         {
-            scoreText.text = _increaseScore.ToString();
             _increaseScore++;
+            scoreText.text = _increaseScore.ToString();
+            
             
         }
         

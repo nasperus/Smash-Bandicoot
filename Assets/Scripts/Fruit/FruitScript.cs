@@ -17,7 +17,6 @@ namespace Fruit
         
         [SerializeField] private float moveDuration;
         
-        
 
         private void Start()
         {

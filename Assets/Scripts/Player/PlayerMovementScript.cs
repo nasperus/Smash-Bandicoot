@@ -1,3 +1,4 @@
+using Boxes;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -26,6 +27,7 @@ namespace Player
         private int _doubleJumpCounter;
         private Vector2 _playerInput;
         private Rigidbody _rb;
+       
         public bool CanSpin { get; set; }
         public static bool IsRunning { get; private set; }
 
@@ -34,6 +36,7 @@ namespace Player
         {
             _rb = playerPhysics.GetRigidbody();
             _rb.freezeRotation = true;
+            
         }
 
         private void FixedUpdate()
@@ -65,9 +68,10 @@ namespace Player
             
             if (_rb.linearVelocity.y <= 0) return;
             //playerAnimation.JumpAnimation();
-            _rb.AddForce(new Vector3(0, jumpGravity, 0), ForceMode.Acceleration);
+            _rb.AddForce(new Vector3(0, jumpGravity, 0), ForceMode.Impulse);
        
         }
+        
 
         private void PlayerMovement()
         {
